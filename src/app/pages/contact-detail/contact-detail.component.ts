@@ -84,8 +84,6 @@ The Total Loan Remaining Amount across all employees with outstanding loans is $
         });
       }
     });
-
-
   }
 
 }
