@@ -23,11 +23,7 @@ interface ChatMessage {
 export class ContactDetailComponent implements OnInit {
  contactDetail: any;
 
-  @Input() set selectedContactId(id: number) {
-    if (id > 0) {
-   
-    }
-  }
+  @Input() selectedAgent!: string;
 
  
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService) {
