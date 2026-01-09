@@ -5,7 +5,7 @@ import { provideAnimations } from "@angular/platform-browser/animations";
 import { routes } from "./app.routes";
 import { provideToastr } from "ngx-toastr";
 import { HTTP_INTERCEPTORS, provideHttpClient } from "@angular/common/http";
-import { MyHttpInterceptor } from "./shared/requestInterceptors/requestInterceptor";
+// import { MyHttpInterceptor } from "./shared/requestInterceptors/requestInterceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +14,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimations(),
     provideToastr(),
-    { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true },
   ],
 };

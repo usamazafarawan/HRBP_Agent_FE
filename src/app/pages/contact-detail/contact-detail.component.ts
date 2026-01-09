@@ -64,7 +64,28 @@ The Total Loan Remaining Amount across all employees with outstanding loans is $
       text: this.message
     });
 
-    this.message = '';
+  
+    this.requestService.sentMessage(this.message).subscribe({
+      next: (response) => {
+        if (response) {
+          console.log('response: ', response);
+           this.message = '';
+          this.chats.push({
+            sender: 'bot',
+            text: response.reply
+          });
+        }
+      },
+      error: (err) => {
+         this.message = '';
+        this.chats.push({
+          sender: 'system',
+          text: 'Facing Issue in Receive Response from BOT.'
+        });
+      }
+    });
+
+
   }
 
 }

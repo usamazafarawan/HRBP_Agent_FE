@@ -12,24 +12,13 @@ export class RequestService {
     private toastr: ToastrService,
   ) { }
 
-  getContactsList(): Observable<any> {
-    const mockUrl = 'https://688a8c212a52cabb9f4e7a83.mockapi.io/api/v1/contacts';
-    return this.mainRequestService.getData(`${mockUrl}`).pipe(catchError(err => {
-      console.log("error", err)
-      const message = err.error?.message || 'An error has occured.';
-      this.toastr.error(message);
-      return EMPTY;
-    }));
+  sentMessage(message:string): Observable<any> {
+    console.log('message: ', message);
+    const payload = { message: message };
+    const url = 'http://localhost:3000/api/message/create';
+    return this.mainRequestService.addData(url, payload);
   }
 
-  getContactsDetailById(Id: number): Observable<any> {
-    const mockUrl = `https://688a8c212a52cabb9f4e7a83.mockapi.io/api/v1/contacts/${Id}`;
-    return this.mainRequestService.getData(`${mockUrl}`).pipe(catchError(err => {
-      console.log("error", err)
-      const message = err.error?.message || 'An error has occured.';
-      this.toastr.error(message);
-      return EMPTY;
-    }));
-  }
+
 
 } 
