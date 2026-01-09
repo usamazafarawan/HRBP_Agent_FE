@@ -25,16 +25,7 @@ export class ContactDetailComponent implements OnInit {
 
   @Input() set selectedContactId(id: number) {
     if (id > 0) {
-      // this.requestService.getContactsDetailById(id).subscribe({
-      //   next: (res:any) => {
-      //     this.contactDetail = res;
-      //   },
-      //   error: (err) => {
-      //     console.error('Error fetching contact Detail:', err);
-      //     this.toastr.error('Failed to load contact detail');
-      //   }
-      // });
-
+   
     }
   }
 

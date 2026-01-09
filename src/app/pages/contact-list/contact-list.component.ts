@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -18,11 +18,19 @@ import { EmployeesList } from '../../shared/const/constant';
   providers: [MainRequestServiceService, RequestService]
 })
 export class ContactPageComponent {
+  selectedAgent = 'My HRBP';
+
   contactList: any[] = [];
   selectedId: number = -1;
   selectedIndex: number = -1;
   searchText = '';
   filteredContacts:any[] = [];
+
+  agents = [
+    { id: 1, name: 'My HRBP', icon: '👤' },
+    { id: 2, name: 'My Leadership Coach', icon: '💡' },
+    { id: 3, name: 'My Growth Consultant', icon: '🚀' }
+  ]
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService) {
     this.getContactsList();
@@ -49,5 +57,12 @@ export class ContactPageComponent {
         contact.name.toLowerCase().includes(text)
       );
     }
+  }
+ selectAgent(agentName: string) {
+    this.selectedAgent = agentName;
+  }
+
+  isActive(agentName: string): boolean {
+    return this.selectedAgent === agentName;
   }
 }

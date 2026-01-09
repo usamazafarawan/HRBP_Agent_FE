@@ -2,9 +2,9 @@
 
   <!-- Header -->
   <header class="flex items-center justify-between px-4 py-3 bg-white shadow-sm">
-    <div class="font-semibold text-gray-800">💬 My HRBP</div>
+    <div class="font-semibold text-gray-800 font-exo2">💬 My HRBP</div>
     <button
-      class="bg-[#6D5DF6] text-white px-4 py-2 rounded-full text-sm hover:bg-[#5b4ee4] transition">
+      class="bg-[#6D5DF6] text-white px-4 py-2 rounded-full text-sm hover:bg-[#5b4ee4] transition font-exo2">
       + New Chat
     </button>
   </header>
@@ -16,13 +16,13 @@
       
       <!-- System Message -->
       <div *ngIf="chat.sender === 'system'"
-           class="flex items-center gap-2 bg-yellow-50 text-yellow-700 px-4 py-2 rounded-lg text-sm max-w-md">
+           class="flex items-center gap-2 bg-yellow-50 text-yellow-700 px-4 py-2 rounded-lg text-sm max-w-md font-exo2">
         ⚠️ {{ chat.text }}
       </div>
 
       <!-- Bot Message -->
       <div *ngIf="chat.sender === 'bot'" class="flex justify-start">
-        <div class="bg-white shadow rounded-2xl px-4 py-3 max-w-[85%] whitespace-pre-line text-gray-800">
+        <div class="bg-white shadow rounded-2xl px-4 py-3 max-w-[85%] whitespace-pre-line text-gray-800 font-exo2">
           {{ chat.text }}
         </div>
       </div>
@@ -30,7 +30,7 @@
       <!-- User Message -->
       <div *ngIf="chat.sender === 'user'" class="flex justify-end">
         <div
-          class="bg-[#6D5DF6] text-white rounded-2xl px-4 py-3 max-w-[85%]">
+          class="bg-[#6D5DF6] text-white rounded-2xl px-4 py-3 max-w-[85%] font-exo2">
           {{ chat.text }}
         </div>
       </div>
@@ -45,12 +45,12 @@
         type="text"
         [(ngModel)]="message"
         placeholder="Ask about your team, HR insights..."
-        class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#6D5DF6]"
+        class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none font-exo2 focus:ring-2 focus:ring-[#6D5DF6]"
       />
 
       <button
         (click)="sendMessage()"
-        class="bg-[#6D5DF6] text-white px-5 py-2 rounded-full hover:bg-[#5b4ee4] transition">
+        class="bg-[#6D5DF6] text-white px-5 py-2 rounded-full hover:bg-[#5b4ee4] font-exo2 transition">
         Send
       </button>
     </div>
