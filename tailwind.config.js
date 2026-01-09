@@ -56,6 +56,7 @@ module.exports = {
         spacing: {},
         fontFamily: {
           lato: ['Lato', 'sans-serif'],
+          exo2: ['"Exo 2"', 'sans-serif'],
         },
         borderRadius: {
           lg: "18px",

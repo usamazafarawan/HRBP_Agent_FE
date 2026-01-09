@@ -5,15 +5,11 @@
             <div class="flex flex-row justify-between items-center w-full">
                 <div class="flex flex-row gap-3">
                     <img src="./assets/icons/Menu.png" alt="Menu Icon" class="cursor-pointer w-8 h-8 lg:w-[35px] lg:h-[35px]">
-                    <h3 class="font-lato font-bold text-lg lg:text-[20px] leading-[32px] tracking-[0px] text-[#1A1C1D]">
-                        Contacts
+                    <h3 class="font-exo2 font-bold text-lg lg:text-[20px] leading-[32px] tracking-[0px] text-[#1A1C1D]">
+                        CULTURETELLIGENCE
                     </h3>
                 </div>
 
-                <div class="flex flex-row gap-1">
-                    <img src="./assets/icons/right_icon.png" alt="Right Icon" class="cursor-pointer w-8 h-8 lg:w-[35px] lg:h-[35px]">
-                    <img src="./assets/icons/left_icon.png" alt="Left Icon" class="cursor-pointer w-8 h-8 lg:w-[35px] lg:h-[35px]">
-                </div>
             </div>
         </div>
 
@@ -23,17 +19,17 @@
             <div class="relative">
                 <input 
                     type="text" 
-                    placeholder="Search for a contact" 
-                    (input)="filterContacts()"   
+                    placeholder="Search for a agent" 
+                    (input)="filterAgents()"   
                     [(ngModel)]="searchText"
-                    class="font-lato font-normal text-sm lg:text-[14px] leading-[21px] tracking-[0px] 
+                    class="font-exo2 font-normal text-sm lg:text-[14px] leading-[21px] tracking-[0px] 
                     placeholder:text-[#8083A3] outline-none border-none bg-transparent focus:ring-0 w-full pr-8" 
                 />
                 <img src="./assets/icons/search_icon.png" alt="Filter Icon"
                     class="absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer w-3 h-3 lg:w-[15px] lg:h-[15px]">
             </div>
 
-            <span class="font-lato font-bold text-sm lg:text-[16px] leading-[100%] tracking-[0px] mt-2">
+            <span class="font-exo2 font-bold text-sm lg:text-[16px] leading-[100%] tracking-[0px] mt-2">
                 Name, email or phone number
             </span>
 
@@ -60,25 +56,18 @@
                         </div>
 
                         <div class="flex flex-col">
-                            <span class="font-lato font-bold text-sm lg:text-[14px] leading-[21px] tracking-[0px] text-[#1A1C1D]">
+                            <span class="font-exo2 font-bold text-sm lg:text-[14px] leading-[21px] tracking-[0px] text-[#1A1C1D]">
                                 {{contact.name}}
                             </span>
 
-                            <span class="font-lato font-normal text-xs lg:text-[14px] leading-[21px] tracking-[0px] text-[#8083A3]">
+                            <span class="font-exo2 font-normal text-xs lg:text-[14px] leading-[21px] tracking-[0px] text-[#8083A3]">
                                 {{contact.title}}
                             </span>
                         </div>
                     </div>
 
                     <div *ngIf="selectedIndex == i; else otherContent" class="flex flex-row gap-1 lg:gap-2">
-                        <div
-                            class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-[#EDEDF7] cursor-pointer">
-                            <img src="./assets/icons/chat_color_icon.png" alt="Icon" class="w-2 h-2 lg:w-[10px] lg:h-[10px]">
-                        </div>
-                        <div
-                            class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-[#EDEDF7] cursor-pointer">
-                            <img src="./assets/icons/call_color_icon.png" alt="Icon" class="w-2 h-2 lg:w-[10px] lg:h-[10px]">
-                        </div>
+                
                         <div
                             class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-[#EDEDF7] cursor-pointer">
                             <img src="./assets/icons/menu_color_icon.png" alt="Icon" class="w-3 h-1 lg:w-auto lg:h-auto">
@@ -87,14 +76,7 @@
 
                     <ng-template #otherContent>
                         <div class="flex flex-row gap-1 lg:gap-2">
-                            <div
-                                class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white cursor-pointer">
-                                <img src="./assets/icons/chat_icon.png" alt="Icon" class="w-2 h-2 lg:w-[10px] lg:h-[10px]">
-                            </div>
-                            <div
-                                class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white cursor-pointer">
-                                <img src="./assets/icons/call_icon.png" alt="Icon" class="w-2 h-2 lg:w-[10px] lg:h-[10px]">
-                            </div>
+                           
                             <div
                                 class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white cursor-pointer">
                                 <img src="./assets/icons/menu_icon.png" alt="Icon" class="w-3 h-1 lg:w-auto lg:h-auto">

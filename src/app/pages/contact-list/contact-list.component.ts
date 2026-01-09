@@ -7,6 +7,7 @@ import { RequestService } from '../../core/services/request.service';
 import { MainRequestServiceService } from '../../core/services/main-request-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactDetailComponent } from '../contact-detail/contact-detail.component';
+import { EmployeesList } from '../../shared/const/constant';
 
 @Component({
   selector: 'app-contacts-page',
@@ -29,17 +30,8 @@ export class ContactPageComponent {
 
 
   getContactsList() {
-    this.requestService.getContactsList().subscribe({
-      next: (res) => {
-        this.contactList = res;
-          this.filteredContacts = [...this.contactList];
-
-      },
-      error: (err) => {
-        console.error('Error fetching contacts:', err);
-        this.toastr.error('Failed to load contacts');
-      }
-    });
+    this.contactList = EmployeesList;
+    this.filteredContacts = [...this.contactList];
   }
 
 
@@ -48,7 +40,7 @@ export class ContactPageComponent {
       this.selectedIndex = index;        
   }
 
-   filterContacts() {
+   filterAgents() {
     const text = this.searchText.trim().toLowerCase();
     if (text === '') {
       this.filteredContacts = [...this.contactList];
