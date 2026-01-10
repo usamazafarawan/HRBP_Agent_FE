@@ -11,30 +11,40 @@
 
   <!-- Chat Body -->
   <main class="flex-1 overflow-y-auto px-4 py-6 space-y-4">
-
-    <ng-container *ngFor="let chat of chats">
-      
-      <!-- System Message -->
-      <div *ngIf="chat.sender === 'system'"
-           class="flex items-center gap-2 bg-yellow-50 text-yellow-700 px-4 py-2 rounded-lg text-sm max-w-md font-exo2">
-        ⚠️ {{ chat.text }}
-      </div>
-
-      <!-- Bot Message -->
-      <div *ngIf="chat.sender === 'bot'" class="flex justify-start">
-        <div class="bg-white shadow rounded-2xl px-4 py-3 max-w-[85%] whitespace-pre-line text-gray-800 font-exo2">
-          {{ chat.text }}
+    <!-- Empty Chat State -->
+    <div *ngIf="!chats || chats.length === 0"
+      class="flex flex-col items-center justify-center h-full text-center text-gray-700 font-exo2">
+      <p class="text-2xl mb-2">
+        Hello Abeer 👋
+      </p>
+      <p class="text-base">
+        How can I support you today?
+      </p>
+    </div>
+    <ng-container *ngIf="chats && chats.length > 0">
+      <ng-container *ngFor="let chat of chats">
+  
+        <!-- System Message -->
+        <div *ngIf="chat.sender === 'system'"
+          class="flex items-center gap-2 bg-yellow-50 text-yellow-700 px-4 py-2 rounded-lg text-sm max-w-md font-exo2">
+          ⚠️ {{ chat.text }}
         </div>
-      </div>
-
-      <!-- User Message -->
-      <div *ngIf="chat.sender === 'user'" class="flex justify-end">
-        <div
-          class="bg-[#6D5DF6] text-white rounded-2xl px-4 py-3 max-w-[85%] font-exo2">
-          {{ chat.text }}
+  
+        <!-- Bot Message -->
+        <div *ngIf="chat.sender === 'bot'" class="flex justify-start">
+          <div class="bg-white shadow rounded-2xl px-4 py-3 max-w-[85%] whitespace-pre-line text-gray-800 font-exo2">
+            {{ chat.text }}
+          </div>
         </div>
-      </div>
-
+  
+        <!-- User Message -->
+        <div *ngIf="chat.sender === 'user'" class="flex justify-end">
+          <div class="bg-[#6D5DF6] text-white rounded-2xl px-4 py-3 max-w-[85%] font-exo2">
+            {{ chat.text }}
+          </div>
+        </div>
+  
+      </ng-container>
     </ng-container>
   </main>
 

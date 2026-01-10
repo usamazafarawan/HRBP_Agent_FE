@@ -22,8 +22,41 @@ interface ChatMessage {
 })
 export class ContactDetailComponent implements OnInit {
  contactDetail: any;
+ selectedAgent:string = 'My HRBP';
+  message = '';
+  chats: ChatMessage[] = [];
 
-  @Input() selectedAgent!: string;
+  @Input() set selectedAgentName(name: any) {
+    console.log('name: ', name);
+    this.selectedAgent = name;
+    if (name === 'My HRBP') {
+      this.chats = [
+        { sender: 'system', text: 'Generation stopped by user.' },
+        {
+          sender: 'user',
+          text: 'Give me the list of Top 5 Employees, Loan Remaining Amount and what is the Total Loan Remaining Amount as well.'
+        },
+        {
+          sender: 'bot',
+          text: `Certainly! Let's look into the loan data.\n
+Based on the highest remaining loan amounts, here are the top 5 employees:
+
+1. Chloe Harris: $58,053
+2. Olivia Brown: $54,072
+3. Brittany Davis: $49,986
+4. Samantha White: $46,404
+5. Kimberly Wilson: $31,751
+
+The Total Loan Remaining Amount across all employees with outstanding loans is $273,083.`
+        }
+      ];
+
+    }
+    else{
+      this.chats = [];
+      this.message = '';
+    }
+  };
 
  
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService) {
@@ -34,27 +67,6 @@ export class ContactDetailComponent implements OnInit {
   }
 
 
-    message = '';
-  chats: ChatMessage[] = [
-    { sender: 'system', text: 'Generation stopped by user.' },
-    {
-      sender: 'user',
-      text: 'Give me the list of Top 5 Employees, Loan Remaining Amount and what is the Total Loan Remaining Amount as well.'
-    },
-    {
-      sender: 'bot',
-      text: `Certainly! Let's look into the loan data.\n
-Based on the highest remaining loan amounts, here are the top 5 employees:
-
-1. Chloe Harris: $58,053
-2. Olivia Brown: $54,072
-3. Brittany Davis: $49,986
-4. Samantha White: $46,404
-5. Kimberly Wilson: $31,751
-
-The Total Loan Remaining Amount across all employees with outstanding loans is $273,083.`
-    }
-  ];
 
   sendMessage() {
     if (!this.message.trim()) return;
